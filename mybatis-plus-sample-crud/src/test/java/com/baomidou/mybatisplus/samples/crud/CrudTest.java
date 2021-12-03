@@ -35,6 +35,18 @@ public class CrudTest {
     private User2Mapper user2Mapper;
 
     @Test
+    public void t(){
+        QueryWrapper<Object> wrapper = Wrappers.query().func(i -> {
+            if (true) {
+                i.eq("id", 1);
+            } else {
+                i.ne("id", 1);
+            }
+        });
+        wrapper.getCustomSqlSegment();
+    }
+
+    @Test
     public void aInsert() {
         User user = new User();
         user.setName("小羊");
